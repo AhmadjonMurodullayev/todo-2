@@ -53,13 +53,19 @@ function displayUsers(){
     <td>${item.phone_number}</td>
     <td>${item.email}</td>
     <td>
-<button class="btn btn-info" onclick="editUser(${index})"> edit</button>
+<button class="btn btn-info" onclick="editUser(${index})"> <i class="fa-solid fa-pen"></i></button>
+<button class="btn btn-info" onclick="deletUser(${index})"> <i class="fa-solid fa-trash"></i></button>
+
 
     </td>
 
     `
     result.appendChild(tr)
   })
+}
+function deletUser(index){
+  users.splice(index, 1);
+    displayUsers()
 }
 function editUser(index){
   edit_user = index
@@ -70,7 +76,6 @@ function editUser(index){
   document.querySelector("input[name ='phone_number']").value = form.phone_number
   document.querySelector("input[name ='email']").value = form.email
   toggleModal("block")
-  
 
 }
 
